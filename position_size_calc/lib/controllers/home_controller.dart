@@ -18,7 +18,7 @@ class HomeController extends GetxController{
       double positionSize = riskAmount / riskPerLot;
       _lotSize.value = positionSize;
     }else{
-      _lotSize.value = 1;
+      _lotSize.value = 0;
     }
   }
 
