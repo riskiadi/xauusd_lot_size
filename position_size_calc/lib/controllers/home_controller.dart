@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 class HomeController extends GetxController{
 
   final _accountBalanceController = TextEditingController().obs;
-  final _riskPercentageController = TextEditingController().obs;
+  final _riskPercentageController = TextEditingController(text: "1").obs;
   final _slPointsController = TextEditingController().obs;
   final _lotSize = 0.0.obs;
 
