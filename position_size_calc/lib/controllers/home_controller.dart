@@ -12,10 +12,14 @@ class HomeController extends GetxController{
   final double _contractSize = 1;
 
   calculatePositionSize() {
-    double riskAmount = double.parse(accountBalanceController.text) * (double.parse(riskPercentageController.text) / 100);
-    double riskPerLot = double.parse(slPointsController.text) * (_pipSize / _contractSize);
-    double positionSize = riskAmount / riskPerLot;
-    _lotSize.value = positionSize;
+    if(accountBalanceController.text.isNotEmpty && riskPercentageController.text.isNotEmpty && slPointsController.text.isNotEmpty){
+      double riskAmount = double.parse(accountBalanceController.text) * (double.parse(riskPercentageController.text) / 100);
+      double riskPerLot = double.parse(slPointsController.text) * (_pipSize / _contractSize);
+      double positionSize = riskAmount / riskPerLot;
+      _lotSize.value = positionSize;
+    }else{
+      _lotSize.value = 1;
+    }
   }
 
   TextEditingController get accountBalanceController => _accountBalanceController.value;

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:hugeicons/hugeicons.dart';
 import 'package:portfolio/controllers/home_controller.dart';
 
 class HomePage extends GetView<HomeController> {
@@ -17,10 +18,15 @@ class HomePage extends GetView<HomeController> {
             children: [
               Column(
                 children: [
-                  Text("XAU/USD Position Size Calculator",
-                    style: TextStyle(fontSize: 60.sp),),
                   SizedBox(
-                    height: 100.sp,
+                    height: 50.sp,
+                  ),
+                  Text(
+                    "XAU/USD Position Size Calculator",
+                    style: TextStyle(fontSize: 65.sp),
+                  ),
+                  SizedBox(
+                    height: 200.sp,
                   ),
                   TextField(
                     keyboardType: TextInputType.number,
@@ -35,6 +41,11 @@ class HomePage extends GetView<HomeController> {
                         ),
                       ),
                       floatingLabelBehavior: FloatingLabelBehavior.always,
+                      suffixIcon: HugeIcon(
+                        icon: HugeIcons.strokeRoundedDollarCircle,
+                        color: Colors.black.withAlpha(180),
+                        size: 70.sp,
+                      ),
                     ),
                     controller: controller.accountBalanceController,
                     style: TextStyle(
@@ -57,6 +68,11 @@ class HomePage extends GetView<HomeController> {
                         ),
                       ),
                       floatingLabelBehavior: FloatingLabelBehavior.always,
+                      suffixIcon: HugeIcon(
+                        icon: HugeIcons.strokeRoundedPercentCircle,
+                        color: Colors.black.withAlpha(180),
+                        size: 70.sp,
+                      ),
                     ),
                     controller: controller.riskPercentageController,
                     style: TextStyle(
@@ -79,6 +95,11 @@ class HomePage extends GetView<HomeController> {
                         ),
                       ),
                       floatingLabelBehavior: FloatingLabelBehavior.always,
+                      suffixIcon: HugeIcon(
+                        icon: HugeIcons.strokeRoundedCircleArrowHorizontal,
+                        color: Colors.black.withAlpha(180),
+                        size: 70.sp,
+                      ),
                     ),
                     controller: controller.slPointsController,
                     style: TextStyle(
@@ -88,9 +109,15 @@ class HomePage extends GetView<HomeController> {
                   SizedBox(
                     height: 100.sp,
                   ),
-                  OutlinedButton(onPressed: () {
-                    controller.calculatePositionSize();
-                  }, child: Text("Calculate")),
+                  OutlinedButton(
+                    style: ButtonStyle(
+                      overlayColor: WidgetStatePropertyAll(Colors.black.withAlpha(10)),
+                    ),
+                    onPressed: () {
+                      controller.calculatePositionSize();
+                      },
+                    child: Text("Calculate", style: TextStyle(color: Colors.black),),
+                  ),
                   SizedBox(
                     height: 150.sp,
                   ),

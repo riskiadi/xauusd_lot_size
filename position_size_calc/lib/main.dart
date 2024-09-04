@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
             debugShowCheckedModeBanner: false,
             initialRoute: Routes.HOME,
             getPages: AppPages.pages,
-            theme: ThemeData(textTheme: GoogleFonts.interTextTheme()),
+            theme: ThemeData(textTheme: GoogleFonts.rubikTextTheme()),
           );
         }
     );
